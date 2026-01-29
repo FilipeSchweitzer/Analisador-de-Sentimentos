@@ -1,5 +1,5 @@
 import joblib
-from process import ProcessadorTexto
+from src.process import ProcessadorTexto
 import os
 
 def carregar_ia():
@@ -8,8 +8,6 @@ def carregar_ia():
     caminho_modelo = os.path.join(BASE_DIR, "modelo_sentimento.pkl")
     caminho_vetorizador = os.path.join(BASE_DIR, "vetorizador.pkl")
 
-    print("Tentando carregar modelo de:", caminho_modelo)
-    print("Existe?", os.path.exists(caminho_modelo))
     if not os.path.exists(caminho_modelo):
         caminho_modelo = os.path.join(BASE_DIR, "modelo_sentimento.pkl")
         caminho_vetorizador = os.path.join(BASE_DIR, "vetorizador.pkl")
@@ -32,9 +30,10 @@ def analisar_frase(frase, modelo, vectorizer, processador):
 
     sentimento = "POSITIVO" if predicao == 1.0 else "NEGATIVO"
 
-    print(f"\nFrase original: {frase}")
-    print(f"Frase processada: {frase_limpa}")
-    print(f"Resultado: {sentimento} (Confiança: {probabilidade:.2%})")
+    #print(f"\nFrase original: {frase}")
+    #print(f"Frase processada: {frase_limpa}")
+    #print(f"Resultado: {sentimento} (Confiança: {probabilidade:.2%})")
+    return sentimento, probabilidade, frase_limpa
 
 if __name__ == "__main__":
     print("--- Analisador de Sentimentos IA ---")
