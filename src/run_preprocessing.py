@@ -1,5 +1,5 @@
 import pandas as pd
-from src.process import ProcessadorTexto
+from process import ProcessadorTexto
 import os
 
 def processar_csv(caminho_entrada, caminho_saida):
